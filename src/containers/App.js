@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Grid from '../components/Grid';
-import range from 'prelude-es6/lib/List/range';
+import * as GridActions from '../actions/grid';
 
-const SIZE = 20;
-const data = range(SIZE).map((i) =>
-                range(SIZE).map((j) => (i+j) % 2));
-
-export default class App extends Component {
-  render() {
-    return <Grid data={ data }/>;
-  }
+function mapStateToProps(state) {
+  return {
+    data: state.data
+  };
 }
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(GridActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid);
