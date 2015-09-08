@@ -1,11 +1,7 @@
 Redux Game of Life
 ==================
 
-A *new* Webpack boilerplate with:
-
-* hot reloading React components;
-* error handling inside component `render()` function;
-* error handling for syntax errors (thanks, **[@glenjamin](https://github.com/glenjamin)**!)
+Features Redux and hot realoading using the brand new React Transform by **[@gaearon](https://github.com/gaearon)**
 
 ## install dependencies
 ```bash
