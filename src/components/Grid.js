@@ -2,8 +2,8 @@ import React, { Component, createElement } from 'react';
 import Tile from './Tile';
 
 export default class Grid extends Component {
+
   render() {
-    console.log(this.props.data.length)
     return (
       <div>
         { this.props.data.map(this.renderRow.bind(this)) }
@@ -13,7 +13,7 @@ export default class Grid extends Component {
 
   renderRow(row, y) {
     return (
-      <div>
+      <div key={ y }>
         { row.map(this.renderTile(y)) }
       </div>
     );
@@ -21,14 +21,14 @@ export default class Grid extends Component {
 
   renderTile(y) {
     return (checked, x) =>
-      createElement(Tile, { 
-        key: `${y}${x}`,
+      createElement(Tile, {
+        key: x,
         toggle: this.toggle(y, x),
         checked
       });
   }
 
   toggle(y, x) {
-    return () => console.log('toggle', [y, x]);
+    return (checked) => console.log('toggle', [y, x], checked);
   }
 }
