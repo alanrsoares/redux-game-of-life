@@ -14,8 +14,7 @@ class App extends Component {
 
     return (
       <div>
-        <div> { "Conway's Game of Life" } </div>
-          <div className="buttons-container">
+        <div className="buttons-container">
           <button className="btn btn-primary">NEW</button>
           <button className="btn btn-success">SAVE</button>
           <button className="btn btn-default" onClick={ actions.tick }>NEXT</button>
