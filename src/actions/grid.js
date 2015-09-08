@@ -13,3 +13,9 @@ export function toggle(coordinates, current) {
     current
   }
 }
+
+export function clear() {
+  return {
+    type: types.CLEAR
+  }
+}

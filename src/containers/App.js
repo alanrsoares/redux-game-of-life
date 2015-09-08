@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div>
         <div className="buttons-container">
-          <button className="btn btn-primary">NEW</button>
+          <button className="btn btn-primary" onClick={ actions.clear }>NEW</button>
           <button className="btn btn-success">SAVE</button>
           <button className="btn btn-default" onClick={ actions.tick }>NEXT</button>
           <label htmlFor="autoplay" className="btn btn-default">
