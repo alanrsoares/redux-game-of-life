@@ -29,6 +29,6 @@ export default class Grid extends Component {
   }
 
   toggle(y, x) {
-    return (checked) => console.log('toggle', [y, x], checked);
+    return (checked) => this.props.toggle({ y, x }, checked);
   }
 }
