@@ -17,7 +17,7 @@ $ npm i
 $ npm start
 ```
 
-## see it running on [localhost:3000](http://localhost:3000)
+### see it running on [localhost:3000](http://localhost:3000)
 
 ## License
 
