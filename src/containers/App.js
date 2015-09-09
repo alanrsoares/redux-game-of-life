@@ -32,7 +32,7 @@ class App extends Component {
   toggleAutoplay(tick) {
     return () => {
       if (!interval) {
-        interval = setInterval(tick, 10);
+        interval = setInterval(tick, 1000 / 60);
         return;
       };
       clearInterval(interval);

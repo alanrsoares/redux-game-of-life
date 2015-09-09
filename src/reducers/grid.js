@@ -2,7 +2,7 @@ import range from 'prelude-es6/lib/List/range';
 import { TICK, TOGGLE, CLEAR } from '../constants/ActionTypes';
 import { next, toggle } from '../lib/game';
 
-const GRID_SIZE = 50;
+const GRID_SIZE = 10;
 const DEFAULT_STATE = range(GRID_SIZE).map((y) => range(GRID_SIZE).map((x) => (x + y) % 2));
 const BLANK_GRID = DEFAULT_STATE.map((y) => y.map(() => 0));
 
