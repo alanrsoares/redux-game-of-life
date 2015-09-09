@@ -1,6 +1,3 @@
-import compact from 'prelude-es6/lib/List/compact';
-import curry from 'prelude-es6/lib/Func/curry';
-
 function newKey(key, offset, size) {
   let $key = key + offset;
   if ($key < 0) { $key = size - 1; }
