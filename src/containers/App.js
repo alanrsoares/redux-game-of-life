@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Grid from '../components/Grid';
 import * as GridActions from '../actions/grid';
 
-let interval = null;
+let frameId = null;
 
 class App extends Component {
 
@@ -31,13 +31,21 @@ class App extends Component {
 
   toggleAutoplay(tick) {
     return () => {
-      if (!interval) {
-        interval = setInterval(tick, 1000 / 60);
-        return;
+      if (!frameId) {
+        return this.start(tick);
       };
-      clearInterval(interval);
-      interval = null;
+      this.stop();
     };
+  }
+
+  start(tick) {
+    frameId = requestAnimationFrame(() => this.start(tick));
+    tick();
+  }
+
+  stop() {
+    cancelAnimationFrame(frameId);
+    frameId = null;
   }
 }
 
