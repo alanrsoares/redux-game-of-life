@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Grid from '../components/Grid';
+import ToggleButton from '../components/ToggleButton';
 import * as GridActions from '../actions/grid';
 
 let frameId = null;
@@ -14,13 +15,11 @@ class App extends Component {
 
     return (
       <div>
-        <div className="buttons-container">
+        <div className="btn-group" role="group">
           <button className="btn btn-primary" onClick={ actions.clear }>NEW</button>
           <button className="btn btn-success">SAVE</button>
           <button className="btn btn-default" onClick={ actions.tick }>NEXT</button>
-          <label htmlFor="autoplay" className="btn btn-default">
-            <input id="autoplay" type="checkbox" onChange={ this.toggleAutoplay(actions.tick) }/> Autoplay
-          </label>
+          <ToggleButton onClick={ this.toggleAutoplay(actions.tick) }/>
         </div>
         <div>
           <Grid data={ data } toggle={ actions.toggle }/>
@@ -54,10 +53,4 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    data: state.grid
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default connect(({ grid }) => ({ data: grid }))(App);
