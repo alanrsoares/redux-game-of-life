@@ -10,8 +10,6 @@ export default class ToggleButton extends Component {
     this.state = {
       on: props.on
     };
-
-    console.log(props);
   }
 
   render() {

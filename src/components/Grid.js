@@ -5,30 +5,32 @@ export default class Grid extends Component {
 
   render() {
     return (
-      <div>
+      <table className="grid">
+        <tbody>
         { this.props.data.map(this.renderRow.bind(this)) }
-      </div>
+        </tbody>
+      </table>
     );
   }
 
   renderRow(row, y) {
     return (
-      <div key={ y }>
+      <tr key={ y }>
         { row.map(this.renderTile(y)) }
-      </div>
+      </tr>
     );
   }
 
   renderTile(y) {
-    return (checked, x) =>
+    return (alive, x) =>
       createElement(Tile, {
         key: x,
         toggle: this.toggle(y, x),
-        checked
+        alive
       });
   }
 
   toggle(y, x) {
-    return (checked) => this.props.toggle({ y, x }, checked);
+    return (alive) => this.props.toggle({ y, x }, alive);
   }
 }
