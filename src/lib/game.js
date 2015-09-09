@@ -3,7 +3,7 @@ import curry from 'prelude-es6/lib/Func/curry';
 import memoize from 'prelude-es6/lib/Func/memoize';
 
 const validIndex = curry((size, idx) => idx < 0 ? size : idx > size ? 0 : idx);
-const get = curry((xs, id) => xs[id]);
+const get = curry((xs, key) => xs[key]);
 const id = (x) => x;
 const inc = (x) => x + 1;
 const dec = (x) => x - 1;
