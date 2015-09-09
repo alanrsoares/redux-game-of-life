@@ -4,16 +4,20 @@ import memoize from 'prelude-es6/lib/Func/memoize';
 
 const validIndex = curry((size, idx) => idx < 0 ? size : idx > size ? 0 : idx);
 const get = curry((xs, id) => xs[id]);
+const id = (x) => x;
+const inc = (x) => x + 1;
+const dec = (x) => x - 1;
 
 export function getNeighbours(grid, { y, x }) {
   const v = memoize(validIndex(grid.length - 1));
-  const [prev, next] = [v(y - 1), v(y + 1)].map(get(grid));
-  const ids = [x, v(x - 1), v(x + 1)];
+  const ids = memoize((x) => [id, inc, dec].map((f) => v(f(x))));
+  const [prev, next] = ids(y).slice(1).map(get(grid));
+  const idsx = ids(x);
 
   return [
-    ...ids.map(get(prev)),
-    ...ids.map(get(next)),
-    ...ids.slice(1).map(get(grid[y]))
+    ...idsx.map(get(prev)),
+    ...idsx.map(get(next)),
+    ...idsx.slice(1).map(get(grid[y]))
   ];
 }
 
