@@ -2,9 +2,10 @@ import range from 'prelude-es6/lib/List/range';
 import { TICK, TOGGLE, CLEAR, RANDOM } from '../constants/ActionTypes';
 import { nextState, toggle } from '../lib/game';
 
-function randomGrid(size) {
-  const r = range(size);
-  return r.map((y) => r.map((x) => Math.random(x + y) > 0.5))
+function randomGrid(width, height = width) {
+  const ys = range(width);
+  const xs = range(height);
+  return ys.map((y) => xs.map((x) => Math.random(x + y) > 0.8))
 }
 
 const clone = (xs) => xs.slice();
