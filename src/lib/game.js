@@ -9,14 +9,17 @@ export function getNeighbours(grid, { y, x }) {
   const size = grid.length - 1;
   let aliveNeighours = 0;
 
-  for (let xOffset = -1; xOffset <= 1; ++xOffset) {
-    for (let yOffset = -1; yOffset <= 1; ++yOffset) {
+  const offset = [-1, 0, 1];
+
+  for (let xOffset of offset) {
+    for (let yOffset of offset) {
       if (!xOffset && !yOffset) continue;
       const $x = newKey(x, xOffset, size);
       const $y = newKey(y, yOffset, size);
       aliveNeighours += +!!grid[$y][$x];
     }
   }
+
   return aliveNeighours;
 }
 
