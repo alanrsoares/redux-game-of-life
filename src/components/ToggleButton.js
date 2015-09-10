@@ -25,7 +25,7 @@ export default class ToggleButton extends Component {
           id="autoplay"
           style={{ display: 'none' }}
           type="checkbox"
-          onChange={ this.handleChange.bind(this) }/> Autoplay
+          onChange={ this.handleChange.bind(this) }/> { this.props.label }
       </label>
     );
   }
@@ -38,7 +38,7 @@ export default class ToggleButton extends Component {
 
 
 ToggleButton.defaultProps = {
-  onClass: 'fa-stop',
-  offClass: 'fa-play',
+  onClass: 'fa-pause',
+  offClass: 'fa-fast-forward',
   onClick: NO_OP
 }
