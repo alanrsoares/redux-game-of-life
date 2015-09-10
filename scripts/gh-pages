@@ -1,0 +1,4 @@
+#!/bin/bash
+webpack
+uglifyjs dist/bundle.js -o static/bundle.js
+rm -rf dist
