@@ -1,7 +1,9 @@
 Redux Game of Life
 ==================
 
-Features Redux and hot realoading using the brand new React Transform by **[@gaearon](https://github.com/gaearon)**
+An educational implementation of Conway's Game of Life using React and Redux
+
+> Features Redux and hot realoading using the brand new React Transform by **[@gaearon](https://github.com/gaearon)**
 
 ## install dependencies
 ```bash
