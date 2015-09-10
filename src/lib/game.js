@@ -1,7 +1,7 @@
 function newKey(key, offset, size) {
   let $key = key + offset;
-  if ($key < 0) { $key = size - 1; }
-  if ($key >= size) { $key = 0; }
+  if ($key < 0) { return size - 1; }
+  if ($key >= size) { return 0; }
   return $key;
 }
 
@@ -12,9 +12,9 @@ export function getNeighbours(grid, { y, x }) {
   const offset = [-1, 0, 1];
 
   for (let xOffset of offset) {
+    const $x = newKey(x, xOffset, size);
     for (let yOffset of offset) {
       if (!xOffset && !yOffset) continue;
-      const $x = newKey(x, xOffset, size);
       const $y = newKey(y, yOffset, size);
       aliveNeighours += +!!grid[$y][$x];
     }

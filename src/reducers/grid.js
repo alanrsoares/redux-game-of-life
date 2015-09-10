@@ -1,31 +1,29 @@
 import range from 'prelude-es6/lib/List/range';
-import { TICK, TOGGLE, CLEAR } from '../constants/ActionTypes';
+import { TICK, TOGGLE, CLEAR, RANDOM } from '../constants/ActionTypes';
 import { nextState, toggle } from '../lib/game';
 
-const GRID_SIZE = 50;
-const DEFAULT_STATE = range(GRID_SIZE).map((y) => range(GRID_SIZE).map((x) => (x + y) % 2));
-const BLANK_GRID = DEFAULT_STATE.map((y) => y.map(() => 0));
-
-/*
-const { map, reduce, assoc, range, toJs, hashMap } = mori;
-
-function generateGrid(size) {
+function randomGrid(size) {
   const r = range(size);
-  const reducer = (acc, y) => assoc(acc, y, map(() => (0), r));
-  return reduce(reducer, hashMap(), r);
+  return r.map((y) => r.map((x) => Math.random(x + y) > 0.5))
 }
-*/
 
+const clone = (xs) => xs.slice();
+
+const GRID_SIZE = 30;
+const DEFAULT_STATE = randomGrid(GRID_SIZE);
+const BLANK_GRID = DEFAULT_STATE.map((y) => y.map(() => 0));
 
 export default function grid(state = DEFAULT_STATE, action) {
   switch (action.type) {
     case TICK:
       return nextState(state);
     case TOGGLE:
-      return toggle(action.coordinates, action.current, [].concat(state));
+      return toggle(action.coordinates, action.current, clone(state));
     case CLEAR:
-      return BLANK_GRID.map((y) => y.map(() => 0));
+      return clone(BLANK_GRID);
+    case RANDOM:
+      return randomGrid(GRID_SIZE);
     default:
-      return state;
+      return clone(state);
   }
 }

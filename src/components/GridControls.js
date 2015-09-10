@@ -11,10 +11,16 @@ export default class GridControls extends Component {
     return (
       <div className="grid-controls">
         <div className="btn-group" role="group">
-          <button className="btn btn-primary" onClick={ this.props.actions.clear }>NEW</button>
-          <button className="btn btn-success">SAVE</button>
-          <button className="btn btn-default" onClick={ this.props.actions.tick }>NEXT</button>
-          <ToggleButton onClick={ this.toggleAutoplay(this.props.actions.tick) }/>
+          <button className="btn btn-danger" onClick={ this.props.actions.clear }>
+            CLEAR
+          </button>
+          <button className="btn btn-success" onClick={ this.props.actions.random }>
+            RANDOMIZE
+          </button>
+          <button className="btn btn-default" onClick={ this.props.actions.tick }>
+            <i className="fa fa-forward fa-lg"></i> NEXT
+          </button>
+          <ToggleButton label="AUTO" onClick={ this.toggleAutoplay(this.props.actions.tick) }/>
         </div>
       </div>
     );

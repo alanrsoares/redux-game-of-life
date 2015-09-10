@@ -19,3 +19,9 @@ export function clear() {
     type: types.CLEAR
   }
 }
+
+export function random() {
+  return {
+    type: types.RANDOM
+  }
+}
