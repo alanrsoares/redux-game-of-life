@@ -4,7 +4,15 @@ import ToggleButton from './ToggleButton';
 export default class GridControls extends Component {
   constructor(props) {
     super(props);
-    this.frameId = null;
+    this.state = {
+      frameId: null,
+      startedAt: null,
+      ticks: 0
+    };
+  }
+
+  get frameRate() {
+    return Math.ceil((this.state.ticks) / ((Date.now() - this.state.startedAt) / 1000));
   }
 
   render() {
@@ -22,13 +30,26 @@ export default class GridControls extends Component {
           </button>
           <ToggleButton label="AUTO" onClick={ this.toggleAutoplay(this.props.actions.tick) }/>
         </div>
+        { this.renderFrameRate() }
+      </div>
+    );
+  }
+
+  renderFrameRate() {
+    if (!this.state.frameId) {
+      return;
+    }
+    return (
+      <div>
+        { this.frameRate } fps
       </div>
     );
   }
 
   toggleAutoplay(tick) {
     return () => {
-      if (!this.frameId) {
+      if (!this.state.frameId) {
+        this.setState({ startedAt: Date.now() });
         return this.start(tick);
       };
       this.stop();
@@ -36,13 +57,16 @@ export default class GridControls extends Component {
   }
 
   start(tick) {
-    this.frameId = requestAnimationFrame(() => this.start(tick));
+    this.setState({
+      frameId: requestAnimationFrame(() => this.start(tick)),
+      ticks: this.state.ticks + 1
+    });
     tick();
   }
 
   stop() {
-    cancelAnimationFrame(this.frameId);
-    this.frameId = null;
+    cancelAnimationFrame(this.state.frameId);
+    this.setState({ frameId: null, startedAt: null, ticks: 0 });
   }
 
 }
