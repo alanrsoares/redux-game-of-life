@@ -39,6 +39,6 @@ export default class ToggleButton extends Component {
 
 ToggleButton.defaultProps = {
   onClass: 'fa-pause',
-  offClass: 'fa-fast-forward',
+  offClass: 'fa-play',
   onClick: NO_OP
 }

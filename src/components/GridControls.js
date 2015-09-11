@@ -12,20 +12,21 @@ export default class GridControls extends Component {
   }
 
   get frameRate() {
-    return Math.ceil((this.state.ticks) / ((Date.now() - this.state.startedAt) / 1000));
+    return Math.ceil(this.state.ticks / ((Date.now() - this.state.startedAt) / 1000));
   }
 
   render() {
+    const marginBottom = `${(!this.state.frameId ? 20 : 0 )}px`;
     return (
       <div className="grid-controls">
-        <div className="btn-group" role="group">
+        <div className="btn-group" role="group" style={ { marginBottom } }>
           <button className="btn btn-danger" onClick={ this.props.actions.clear }>
             CLEAR
           </button>
           <button className="btn btn-success" onClick={ this.props.actions.random }>
             RANDOMIZE
           </button>
-          <button className="btn btn-default" onClick={ this.props.actions.tick }>
+          <button className="btn btn-default" disabled={ !!this.state.frameId } onClick={ this.props.actions.tick }>
             <i className="fa fa-forward fa-lg"></i> NEXT
           </button>
           <ToggleButton label="AUTO" onClick={ this.toggleAutoplay(this.props.actions.tick) }/>
@@ -40,8 +41,8 @@ export default class GridControls extends Component {
       return;
     }
     return (
-      <div>
-        { this.frameRate } fps
+      <div className="text-muted">
+        { `${this.frameRate} fps` }
       </div>
     );
   }
