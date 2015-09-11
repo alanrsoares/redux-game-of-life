@@ -3,10 +3,12 @@ import cn from 'classnames';
 
 export default class Tile extends Component {
   render() {
+    const style = this.props.alive ? { backgroundColor: '#fff' } : null;
     return (
-      <td className={ cn('tile', { alive: this.props.alive }) }
+      <td className="tile"
           onMouseOver={ this.onMouseOver.bind(this) }
-          onMouseDown={ this.onMouseDown.bind(this) }></td>
+          onMouseDown={ this.onMouseDown.bind(this) }
+          style={ style }></td>
     );
   }
 
