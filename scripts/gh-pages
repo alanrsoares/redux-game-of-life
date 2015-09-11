@@ -1,4 +1,7 @@
 #!/bin/bash
+git merge -m "merge master"
 webpack
 uglifyjs dist/bundle.js -o static/bundle.js
 rm -rf dist
+git add . && git commit -am "update bundle"
+git push
