@@ -1,5 +1,5 @@
 #!/bin/bash
-git merge -m "merge master"
+git merge master -m "merge master"
 webpack
 uglifyjs dist/bundle.js -o static/bundle.js
 rm -rf dist
