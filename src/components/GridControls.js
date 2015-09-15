@@ -27,7 +27,7 @@ export default class GridControls extends Component {
             RANDOMIZE
           </button>
           <button className="btn btn-default" disabled={ !!this.state.frameId } onClick={ this.props.actions.tick }>
-            <i className="fa fa-forward fa-lg"></i> NEXT
+            <i className="fa fa-fast-forward fa-lg"></i> NEXT
           </button>
           <ToggleButton label="AUTO" onClick={ this.toggleAutoplay(this.props.actions.tick) }/>
         </div>
