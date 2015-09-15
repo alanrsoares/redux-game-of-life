@@ -4,7 +4,8 @@
   "description": "A new Webpack boilerplate with hot reloading React components, and error handling on module and component level.",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "pages": "./scripts/gh-pages"
   },
   "repository": {
     "type": "git",
