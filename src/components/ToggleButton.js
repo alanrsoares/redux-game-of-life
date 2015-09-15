@@ -13,14 +13,19 @@ export default class ToggleButton extends Component {
   }
 
   render() {
-    const classes = cn('fa', 'fa-lg', {
+    const iconClasses = cn('fa', 'fa-lg', {
+      'active': this.state.on,
       [this.props.onClass]: this.state.on,
       [this.props.offClass]: !this.state.on
     });
 
+    const buttonClasses = cn('btn', 'btn-default', {
+      'active': this.state.on
+    });
+
     return (
-      <label htmlFor="autoplay" className="btn btn-default">
-        <i className={ classes }></i>
+      <label htmlFor="autoplay" className={ buttonClasses }>
+        <i className={ iconClasses }></i>
         <input
           id="autoplay"
           style={{ display: 'none' }}

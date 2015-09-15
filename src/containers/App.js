@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Grid from '../components/Grid';
 import GridControls from '../components/GridControls';
+import Grid from '../components/Grid';
+import ForkMeOnGithubRibbon from '../components/ForkMeOnGithubRibbon';
 import * as GridActions from '../actions/grid';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
         <div>
           <Grid data={ data } toggle={ actions.toggle }/>
         </div>
+        <ForkMeOnGithubRibbon />
       </div>
     );
   }
