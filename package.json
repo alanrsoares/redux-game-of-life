@@ -1,7 +1,7 @@
 {
-  "name": "react-transform-boilerplate",
+  "name": "redux-game-of-life",
   "version": "0.1.0",
-  "description": "A new Webpack boilerplate with hot reloading React components, and error handling on module and component level.",
+  "description": "A redux implementation of Conway's Game of Life.",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
@@ -9,9 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-transform-boilerplate.git"
+    "url": "https://github.com/alanrsoares/redux-game-of-life.git"
   },
   "keywords": [
+    "game of life",
+    "game",
+    "automata",
     "react",
     "reactjs",
     "boilerplate",
@@ -24,12 +27,12 @@
     "babel",
     "react-transform"
   ],
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
+  "author": "Alan R Soares <alanrsoars@gmail.com> (http://github.com/alanrsoares)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaearon/react-transform-boilerplate/issues"
+    "url": "https://github.com/alanrsoares/redux-game-of-life/issues"
   },
-  "homepage": "https://github.com/gaearon/react-transform-boilerplate",
+  "homepage": "https://github.com/alanrsoares/redux-game-of-life",
   "devDependencies": {
     "babel-core": "^5.4.7",
     "babel-eslint": "^3.1.9",
@@ -39,8 +42,7 @@
     "eslint": "^1.3.1",
     "eslint-plugin-react": "^2.3.0",
     "express": "^4.13.3",
-    "mori": "^0.3.2",
-    "prelude-es6": "^0.2.5",
+    "prelude-es6": "~0.3.0",
     "react-redux": "^2.1.1",
     "react-transform-catch-errors": "^0.1.1",
     "react-transform-webpack-hmr": "^0.1.2",
