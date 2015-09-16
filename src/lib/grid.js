@@ -1,5 +1,5 @@
-import range from 'prelude-es6/lib/List/range';
-import curry from 'prelude-es6/lib/Func/curry';
+import range from 'prelude-es6/List/range';
+import curry from 'prelude-es6/Func/curry';
 
 const always = (x) => () => x;
 const ZERO = always(0);
