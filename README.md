@@ -1,5 +1,4 @@
-Redux Game of Life
-==================
+#Redux Game of Life
 
 **An educational implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) using [React](https://github.com/facebook/react) and [Redux](https://github.com/rackt/redux)**
 
