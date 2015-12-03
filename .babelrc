@@ -4,7 +4,7 @@
   "extra": {
     "react-transform": {
       "transforms": [{
-        "transform": "react-transform-webpack-hmr",
+        "transform": "react-transform-hmr",
         "imports": ["react"],
         "locals": ["module"]
       }, {
