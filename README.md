@@ -20,4 +20,4 @@ $ npm start
 
 ## License
 
-MIT
+[MIT](/LICENSE)
