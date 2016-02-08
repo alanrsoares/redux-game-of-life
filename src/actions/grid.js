@@ -1,27 +1,8 @@
+import { createAction } from 'redux-actions';
+
 import * as types from '../constants/ActionTypes';
 
-export function tick() {
-  return {
-    type: types.TICK
-  }
-}
-
-export function toggle(coordinates, current) {
-  return {
-    type: types.TOGGLE,
-    coordinates,
-    current
-  }
-}
-
-export function clear() {
-  return {
-    type: types.CLEAR
-  }
-}
-
-export function random() {
-  return {
-    type: types.RANDOM
-  }
-}
+export const tick = createAction(types.TICK);
+export const toggle = createAction(types.TOGGLE);
+export const clear = createAction(types.CLEAR);
+export const random = createAction(types.RANDOM);
