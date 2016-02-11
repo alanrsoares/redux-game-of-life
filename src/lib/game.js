@@ -13,6 +13,7 @@ export function getNeighbours(grid, { y, x }) {
   for (let xOffset of offset) {
     const $x = newKey(x + xOffset, size);
     for (let yOffset of offset) {
+      // excludes the current cell
       if (!xOffset && !yOffset) continue;
       const $y = newKey(y + yOffset, size);
       aliveNeighours += +!!grid[$y][$x];
