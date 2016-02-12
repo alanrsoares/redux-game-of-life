@@ -4,7 +4,7 @@
 
 Features Redux and hot realoading using the brand new React Transform by **[@gaearon](https://github.com/gaearon)**
 
-**Check ou the [demo](http://alanrsoares.github.io/redux-game-of-life/)**
+**Check out the [demo](http://alanrsoares.github.io/redux-game-of-life/)**
 
 ## install dependencies
 ```bash
@@ -20,4 +20,6 @@ $ npm start
 
 ## License
 
-MIT
+- [MIT](/LICENSE)
+
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)

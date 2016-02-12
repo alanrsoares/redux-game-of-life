@@ -1,26 +1,26 @@
-import React from 'react';
+import React from 'react'
 
-const PROJECT_URL = 'https://github.com/alanrsoares/redux-game-of-life';
+const PROJECT_URL = 'https://github.com/alanrsoares/redux-game-of-life'
 
 export default class ForkMeOnGithubRibbon extends React.Component {
-  render() {
+  render () {
     return (
       <div>
-        <div className="github-fork-ribbon-wrapper right-bottom visible-xs">
-          { this.renderRibbon() }
+        <div className='github-fork-ribbon-wrapper right-bottom visible-xs'>
+          {this.renderRibbon()}
         </div>
-        <div className="github-fork-ribbon-wrapper right hidden-xs">
-          { this.renderRibbon() }
+        <div className='github-fork-ribbon-wrapper right hidden-xs'>
+          {this.renderRibbon()}
         </div>
       </div>
-    );
+    )
   }
 
-  renderRibbon() {
+  renderRibbon () {
     return (
-      <div className="github-fork-ribbon">
-        <a href={ PROJECT_URL }>Fork me on Github</a>
+      <div className='github-fork-ribbon'>
+        <a href={PROJECT_URL}>Fork me on Github</a>
       </div>
-    );
+    )
   }
 }

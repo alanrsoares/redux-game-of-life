@@ -1,24 +1,22 @@
-import { TICK, TOGGLE, CLEAR, RANDOM } from '../constants/ActionTypes';
-import { makeGrid, makeBlankGrid } from '../lib/grid';
-import { nextState, toggle } from '../lib/game';
+import { handleActions } from 'redux-actions'
 
-const GRID_SIZE = 30;
+import { TICK, TOGGLE, CLEAR, RANDOM } from '../constants/ActionTypes'
+import { makeGrid, makeBlankGrid } from '../lib/grid'
+import { nextState, toggle } from '../lib/game'
 
-const randomizer = (y, x) => Math.random(x + y) > 0.8;
-const DEFAULT_STATE = makeGrid(randomizer, GRID_SIZE);
-const clone = (xs) => xs.slice();
+const GRID_SIZE = 30
 
-export default function grid(state = DEFAULT_STATE, action) {
-  switch (action.type) {
-    case TICK:
-      return nextState(state);
-    case TOGGLE:
-      return toggle(action.coordinates, action.current, clone(state));
-    case CLEAR:
-      return makeBlankGrid(GRID_SIZE, GRID_SIZE);
-    case RANDOM:
-      return makeGrid(randomizer, GRID_SIZE);
-    default:
-      return state;
-  }
+const randomizer = (y, x) => Math.random(x + y) > 0.8
+const DEFAULT_STATE = makeGrid(randomizer, GRID_SIZE)
+
+const actionHandlers = {
+  [TICK]: nextState,
+  [TOGGLE]: (state, { payload }) => toggle(payload.coordinates, payload.current, state),
+  [CLEAR]: () => makeBlankGrid(GRID_SIZE, GRID_SIZE),
+  [RANDOM]: () => makeGrid(randomizer, GRID_SIZE)
 }
+
+export default handleActions(
+  actionHandlers,
+  DEFAULT_STATE
+)
