@@ -28,4 +28,7 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired
 }
 
-export default connect(({ grid }) => ({ data: grid }))(App)
+export default connect(
+  // map state to props
+  ({ grid }) => ({ data: grid })
+)(App)

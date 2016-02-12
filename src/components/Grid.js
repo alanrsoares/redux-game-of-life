@@ -30,6 +30,9 @@ export default class Grid extends Component {
   }
 
   toggle (y, x) {
-    return (alive) => this.props.toggle({ y, x }, alive)
+    return (alive) => this.props.toggle({
+      coordinates: { y, x },
+      current: alive
+    })
   }
 }
