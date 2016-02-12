@@ -1,3 +1,4 @@
+// immutable helper to set array value at index { i }
 const set = (i, value, xs) => [
   ...xs.slice(0, i),
   value,
