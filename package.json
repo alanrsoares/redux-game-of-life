@@ -3,17 +3,14 @@
   "version": "0.1.0",
   "description": "A redux implementation of Conway's Game of Life.",
   "scripts": {
-<<<<<<< HEAD
     "start": "node server.js",
     "lint": "eslint src",
-    "pages": "./scripts/gh-pages"
-=======
+    "pages": "./scripts/gh-pages",
     "clean": "rimraf dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
     "lint": "standard"
->>>>>>> master
   },
   "repository": {
     "type": "git",
