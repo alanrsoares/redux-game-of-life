@@ -6,7 +6,7 @@ export default class Grid extends Component {
     return (
       <table className='grid'>
         <tbody>
-        {this.props.data.map(this.renderRow.bind(this))}
+        {this.props.data.grid.map(this.renderRow.bind(this))}
         </tbody>
       </table>
     )
