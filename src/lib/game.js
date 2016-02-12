@@ -1,3 +1,9 @@
+const set = (i, value, xs) => [
+  ...xs.slice(0, i),
+  value,
+  ...xs.slice(i + 1)
+];
+
 function newKey(key, size) {
   if (key < 0) { return size - 1; }
   if (key >= size) { return 0; }
@@ -23,18 +29,17 @@ export function getNeighbours(grid, { y, x }) {
   return aliveNeighours;
 }
 
-export function willLive(isAlive, neighbours) {
-  return isAlive
+export const willLive = (isAlive, neighbours) =>
+  isAlive
     ? neighbours >= 2 && neighbours <= 3
-    : neighbours === 3
-}
+    : neighbours === 3;
 
-export function nextState(grid) {
-  return grid.map((row, y) => row.map((column, x) =>
-    +willLive(column, getNeighbours(grid, { x, y }))));
-}
+export const nextState = (grid) =>
+  grid.map((row, y) =>
+    row.map((column, x) =>
+      +willLive(column, getNeighbours(grid, { x, y }))
+    )
+  );
 
-export function toggle({ y, x }, current, grid) {
-  grid[y][x] = +!current;
-  return grid;
-}
+export const toggle = ({ y, x }, current, grid) =>
+  set(y, set(x, +!current, grid[y]), grid);
