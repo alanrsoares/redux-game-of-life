@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 export default class Tile extends Component {
-  constructor() {
+  constructor (props) {
+    super(props)
     this.onMouseOver = this.onMouseOver.bind(this)
     this.onMouseDown = this.onMouseDown.bind(this)
   }
