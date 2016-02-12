@@ -10,6 +10,8 @@ export default class ToggleButton extends Component {
     this.state = {
       on: props.on
     }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
   render () {
@@ -30,7 +32,7 @@ export default class ToggleButton extends Component {
           id='autoplay'
           style={{ display: 'none' }}
           type='checkbox'
-          onChange={this.handleChange.bind(this)}/> {this.props.label}
+          onChange={this.handleChange}/> {this.props.label}
       </label>
     )
   }

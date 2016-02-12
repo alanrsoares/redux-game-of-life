@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 
 export default class Tile extends Component {
+  constructor() {
+    this.onMouseOver = this.onMouseOver.bind(this)
+    this.onMouseDown = this.onMouseDown.bind(this)
+  }
+
   render () {
     const style = this.props.alive ? { backgroundColor: '#fff' } : null
     return (
       <td className='tile'
-        onMouseOver={this.onMouseOver.bind(this)}
-        onMouseDown={this.onMouseDown.bind(this)}
+        onMouseOver={this.onMouseOver}
+        onMouseDown={this.onMouseDown}
         style={style}></td>
     )
   }
