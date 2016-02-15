@@ -2,10 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import ToggleButton from './ToggleButton'
 
 export default class GridControls extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     const marginBottom = `${(!this.props.profiler.frameId ? 20 : 0)}px`
 
