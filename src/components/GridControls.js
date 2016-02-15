@@ -18,7 +18,7 @@ export default class GridControls extends Component {
       <div className='grid-controls'>
         <div className='btn-group' role='group' style={{ marginBottom }}>
           <button className='btn btn-danger' onClick={this.reset}>
-            CLEAR
+            RESET
           </button>
           <button className='btn btn-success' onClick={this.random}>
             RANDOMIZE
