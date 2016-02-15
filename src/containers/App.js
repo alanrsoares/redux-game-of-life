@@ -8,8 +8,7 @@ import * as GridActions from '../actions/grid'
 
 class App extends Component {
   render () {
-    const { data, dispatch } = this.props
-    const actions = bindActionCreators(GridActions, dispatch)
+    const { data, actions } = this.props
 
     return (
       <div>
@@ -30,5 +29,7 @@ App.propTypes = {
 
 export default connect(
   // map state to props
-  ({ grid }) => ({ data: grid })
+  ({ grid }) => ({ data: grid }),
+  // map dispatch to props,
+  (dispatch) => ({ actions: bindActionCreators(GridActions, dispatch) })
 )(App)

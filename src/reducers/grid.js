@@ -25,7 +25,7 @@ const actionHandlers = {
   [types.RANDOM]: (state) => ({ ...state, grid: makeGrid(randomizer, GRID_SIZE) }),
   [types.TOGGLE]: (state, { payload }) => ({
     ...state,
-    grid: toggle(payload.coordinates, payload.current, grid)
+    grid: toggle(payload.coordinates, payload.current, state.grid)
   })
 }
 
