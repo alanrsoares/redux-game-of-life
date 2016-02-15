@@ -23,8 +23,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  data: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired
+  data: PropTypes.object.isRequired,
+  actions: PropTypes.object
 }
 
 export default connect(
