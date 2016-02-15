@@ -8,13 +8,11 @@ import * as GridActions from '../actions/grid'
 
 class App extends Component {
   render () {
-    const { data, actions } = this.props
-
     return (
       <div>
-        <GridControls actions={actions} />
+        <GridControls actions={this.props.actions} profiler={this.props.profiler}/>
         <div>
-          <Grid data={data} toggle={actions.toggle}/>
+          <Grid data={this.props.grid} toggle={this.props.actions.toggle}/>
         </div>
         <ForkMeOnGithubRibbon />
       </div>
@@ -23,13 +21,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-  data: PropTypes.object.isRequired,
-  actions: PropTypes.object
+  grid: PropTypes.array.isRequired,
+  profiler: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 export default connect(
   // map state to props
-  ({ grid }) => ({ data: grid }),
+  (state) => ({ ...state }),
   // map dispatch to props,
   (dispatch) => ({ actions: bindActionCreators(GridActions, dispatch) })
 )(App)
