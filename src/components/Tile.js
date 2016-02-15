@@ -1,29 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Tile extends Component {
-  constructor (props) {
-    super(props)
-    this.onMouseOver = this.onMouseOver.bind(this)
-    this.onMouseDown = this.onMouseDown.bind(this)
-  }
-
-  render () {
-    const style = this.props.alive ? { backgroundColor: '#fff' } : null
-    return (
-      <td className='tile'
-        onMouseOver={this.onMouseOver}
-        onMouseDown={this.onMouseDown}
-        style={style}></td>
-    )
-  }
-
-  onMouseDown (e) {
-    if (e.nativeEvent.which !== 1) { return }
-    this.props.toggle(this.props.alive)
-  }
-
-  onMouseOver (e) {
-    if (e.nativeEvent.which !== 1) { return }
-    this.props.toggle(this.props.alive)
-  }
+const onMouseEvent = (toggle) => (e) => {
+  if (e.nativeEvent.which !== 1) { return }
+  toggle(this.props.alive)
 }
+
+export default ({ alive, toggle }) =>
+  <td className='tile'
+    onMouseOver={onMouseEvent(toggle)}
+    onMouseDown={onMouseEvent(toggle)}
+    style={alive ? { backgroundColor: '#fff' } : null}>
+  </td>
