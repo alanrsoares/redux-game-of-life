@@ -4,12 +4,6 @@ import cn from 'classnames'
 const NO_OP = () => null
 
 export default class ToggleButton extends Component {
-  constructor (props) {
-    super(props)
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
   render () {
     const iconClasses = cn('fa', 'fa-lg', {
       'active': this.props.on,
@@ -28,13 +22,9 @@ export default class ToggleButton extends Component {
           id='autoplay'
           style={{ display: 'none' }}
           type='checkbox'
-          onChange={this.handleChange}/> {this.props.label}
+          onChange={this.props.onClick}/> {this.props.label}
       </label>
     )
-  }
-
-  handleChange () {
-    this.props.onClick()
   }
 }
 
