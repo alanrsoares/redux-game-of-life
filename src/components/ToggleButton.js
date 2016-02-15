@@ -7,22 +7,18 @@ export default class ToggleButton extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {
-      on: props.on
-    }
-
     this.handleChange = this.handleChange.bind(this)
   }
 
   render () {
     const iconClasses = cn('fa', 'fa-lg', {
-      'active': this.state.on,
-      [this.props.onClass]: this.state.on,
-      [this.props.offClass]: !this.state.on
+      'active': this.props.on,
+      [this.props.onClass]: this.props.on,
+      [this.props.offClass]: !this.props.on
     })
 
     const buttonClasses = cn('btn', 'btn-default', {
-      'active': this.state.on
+      'active': this.props.on
     })
 
     return (
@@ -38,7 +34,6 @@ export default class ToggleButton extends Component {
   }
 
   handleChange () {
-    this.setState({ on: !this.state.on })
     this.props.onClick()
   }
 }

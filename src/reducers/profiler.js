@@ -11,21 +11,16 @@ const DEFAULT_STATE = {
 }
 
 const actionHandlers = {
+  [types.STOP]: () => DEFAULT_STATE,
   [types.START]: (state, { payload }) => ({
     ...state,
     startedAt: payload
-  }),
-  [types.STOP]: (state) => ({
-    ...state,
-    frameId: null,
-    startedAt: null,
-    ticks: 0
   }),
   [types.TICK]: (state, { payload }) => ({
     ...state,
     ticks: state.ticks + 1,
     frameId: payload.frameId,
-    frameRate: calculateFrameRate(state.ticks + 1, state.startedAt, Date.now())
+    frameRate: calculateFrameRate(state.ticks + 1, state.startedAt, payload.now)
   })
 }
 
