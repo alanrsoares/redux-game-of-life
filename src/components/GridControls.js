@@ -54,7 +54,10 @@ export default class GridControls extends Component {
   }
 
   start (tick) {
-    tick({ frameId: window.requestAnimationFrame(() => this.start(tick)) })
+    tick({
+      frameId: window.requestAnimationFrame(() => this.start(tick)),
+      now: Date.now()
+    })
   }
 
   stop () {
@@ -62,7 +65,7 @@ export default class GridControls extends Component {
     this.props.actions.stop()
   }
 
-  clear() {
+  clear () {
     if (this.props.profiler.startedAt) {
       this.stop()
     }

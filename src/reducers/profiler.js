@@ -20,7 +20,7 @@ const actionHandlers = {
     ...state,
     ticks: state.ticks + 1,
     frameId: payload.frameId,
-    frameRate: calculateFrameRate(state.ticks + 1, state.startedAt, Date.now())
+    frameRate: calculateFrameRate(state.ticks + 1, state.startedAt, payload.now)
   })
 }
 
