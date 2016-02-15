@@ -11,7 +11,7 @@ const DEFAULT_STATE = makeGrid(randomizer, GRID_SIZE)
 
 const actionHandlers = {
   [types.TICK]: nextState,
-  [types.CLEAR]: (state) =>
+  [types.RESET]: (state) =>
     makeBlankGrid(GRID_SIZE, GRID_SIZE),
   [types.RANDOM]: (state, { payload }) =>
     makeGrid(payload.randomizer, GRID_SIZE),

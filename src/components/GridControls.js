@@ -1,10 +1,13 @@
 import React, { Component, PropTypes } from 'react'
+
 import ToggleButton from './ToggleButton'
+import { randomizer } from '../lib/utils'
 
 export default class GridControls extends Component {
   constructor (props) {
     super(props)
-    this.clear = this.clear.bind(this)
+    this.reset = this.reset.bind(this)
+    this.random = this.random.bind(this)
   }
 
   render () {
@@ -14,10 +17,10 @@ export default class GridControls extends Component {
     return (
       <div className='grid-controls'>
         <div className='btn-group' role='group' style={{ marginBottom }}>
-          <button className='btn btn-danger' onClick={this.clear}>
+          <button className='btn btn-danger' onClick={this.reset}>
             CLEAR
           </button>
-          <button className='btn btn-success' onClick={actions.random}>
+          <button className='btn btn-success' onClick={this.random}>
             RANDOMIZE
           </button>
           <button className='btn btn-default' disabled={!!profiler.frameId} onClick={actions.tick}>
@@ -53,6 +56,10 @@ export default class GridControls extends Component {
     }
   }
 
+  random () {
+    this.props.actions.random({ randomizer })
+  }
+
   start (tick) {
     tick({
       frameId: window.requestAnimationFrame(() => this.start(tick)),
@@ -65,11 +72,11 @@ export default class GridControls extends Component {
     this.props.actions.stop()
   }
 
-  clear () {
+  reset () {
     if (this.props.profiler.startedAt) {
       this.stop()
     }
-    this.props.actions.clear()
+    this.props.actions.reset()
   }
 }
 
