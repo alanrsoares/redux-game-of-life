@@ -1,13 +1,15 @@
 import React from 'react'
 
-const onMouseEvent = (toggle) => (e) => {
+const onMouseEvent = (toggle, alive) => (e) => {
   if (e.nativeEvent.which !== 1) { return }
-  toggle(this.props.alive)
+  toggle(alive)
 }
 
-export default ({ alive, toggle }) =>
+const Tile = ({ alive, toggle }) =>
   <td className='tile'
-    onMouseOver={onMouseEvent(toggle)}
-    onMouseDown={onMouseEvent(toggle)}
+    onMouseOver={onMouseEvent(toggle, alive)}
+    onMouseDown={onMouseEvent(toggle, alive)}
     style={alive ? { backgroundColor: '#fff' } : null}>
   </td>
+
+export default Tile
