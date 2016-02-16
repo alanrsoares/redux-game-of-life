@@ -1,38 +1,25 @@
-import React, { Component, createElement } from 'react'
+import React, { createElement } from 'react'
+
 import Tile from './Tile'
 
-export default class Grid extends Component {
-  render () {
-    return (
-      <table className='grid'>
-        <tbody>
-        {this.props.data.map(this.renderRow.bind(this))}
-        </tbody>
-      </table>
-    )
-  }
-
-  renderRow (row, y) {
-    return (
-      <tr key={y}>
-        {row.map(this.renderTile(y))}
-      </tr>
-    )
-  }
-
-  renderTile (y) {
-    return (alive, x) =>
-      createElement(Tile, {
-        key: x,
-        toggle: this.toggle(y, x),
-        alive
-      })
-  }
-
-  toggle (y, x) {
-    return (alive) => this.props.toggle({
+const renderTile = (toggle, y) => (alive, x) =>
+  createElement(Tile, {
+    alive,
+    key: x,
+    toggle: (alive) => toggle({
       coordinates: { y, x },
       current: alive
     })
-  }
-}
+  })
+
+const renderRow = (toggle) => (row, y) =>
+  <tr key={y}>
+    {row.map(renderTile(toggle, y))}
+  </tr>
+
+export default ({ data, toggle }) =>
+  <table className='grid'>
+    <tbody>
+      {data.map(renderRow(toggle))}
+    </tbody>
+  </table>
