@@ -4,7 +4,7 @@
 
 Features Redux and hot realoading using the brand new React Transform by **[@gaearon](https://github.com/gaearon)**
 
-**Check out the [demo](http://alanrsoares.github.io/redux-game-of-life/)**
+*Check out the [demo](http://alanrsoares.github.io/redux-game-of-life/)*
 
 ## install dependencies
 ```bash
