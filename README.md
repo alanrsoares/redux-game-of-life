@@ -2,7 +2,7 @@
 
 **An educational implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) using [React](https://github.com/facebook/react) and [Redux](https://github.com/rackt/redux)**
 
-Features Redux and hot realoading using the brand new React Transform by **[@gaearon](https://github.com/gaearon)**
+Features Redux and hot realoading using the brand new React Transform by **[Dan Abramov](https://github.com/gaearon)**
 
 *Check out the [demo](http://alanrsoares.github.io/redux-game-of-life/)*
 
