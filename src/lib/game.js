@@ -5,30 +5,33 @@ const set = (i, value, xs) => [
   ...xs.slice(i + 1)
 ]
 
-function newKey (key, size) {
-  if (key < 0) { return size - 1 }
-  if (key >= size) { return 0 }
+const newKey = (size) => (key) => {
+  if (key === -1) { return size - 1 }
+  if (key === size) { return 0 }
   return key
 }
 
-export function getNeighbours (grid, { y, x }) {
-  const size = grid.length - 1
-  let aliveNeighours = 0
+const newKeys = (size, keys) =>
+  keys.map(newKey(size))
 
+const combinePositions = ({ y, x }) => {
   const offset = [-1, 0, 1]
 
-  for (let xOffset of offset) {
-    const $x = newKey(x + xOffset, size)
-    for (let yOffset of offset) {
-      // excludes the current cell
-      if (!xOffset && !yOffset) continue
-      const $y = newKey(y + yOffset, size)
-      aliveNeighours += +!!grid[$y][$x]
-    }
-  }
-
-  return aliveNeighours
+  return offset.map(($y) =>
+    offset.reduce((acc, $x) =>
+      ($x || $y) ? [...acc, [y + $y, x + $x]] : acc,
+      []
+    )
+  ).reduce((a, b) => a.concat(b))
 }
+
+const getIn = (grid) => (position) =>
+  (([y, x]) => grid[y][x])(newKeys(grid.length, position))
+
+export const getNeighbours = (grid, position) =>
+  combinePositions(position)
+    .map(getIn(grid))
+    .reduce((a, b) => a + b)
 
 export const willLive = (isAlive, neighbours) =>
   isAlive
@@ -38,7 +41,7 @@ export const willLive = (isAlive, neighbours) =>
 export const nextState = (grid) =>
   grid.map((row, y) =>
     row.map((column, x) =>
-      +willLive(column, getNeighbours(grid, { x, y }))
+      +willLive(column, getNeighbours(grid, { y, x }))
     )
   )
 
