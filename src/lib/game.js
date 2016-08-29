@@ -17,12 +17,13 @@ const newKeys = (size, keys) =>
 const combinePositions = ({ y, x }) => {
   const offset = [-1, 0, 1]
 
-  return offset.map(($y) =>
-    offset.reduce((acc, $x) =>
-      ($x || $y) ? [...acc, [y + $y, x + $x]] : acc,
-      []
-    )
-  ).reduce((a, b) => a.concat(b))
+  return offset.reduce((a, $y) =>
+    offset.reduce((b, $x) =>
+      ($x || $y) ? [...b, [y + $y, x + $x]] : b,
+      a
+    ),
+    []
+  )
 }
 
 const getIn = (grid) => (position) =>
