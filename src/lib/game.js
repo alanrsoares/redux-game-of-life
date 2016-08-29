@@ -14,17 +14,14 @@ const newKey = (size) => (key) => {
 const newKeys = (size, keys) =>
   keys.map(newKey(size))
 
-const combinePositions = ({ y, x }) => {
-  const offset = [-1, 0, 1]
-
-  return offset.reduce((a, $y) =>
+const combinePositions = ({ y, x }) =>
+  [-1, 0, 1].reduce((a, $y, _, offset) =>
     offset.reduce((b, $x) =>
       ($x || $y) ? [...b, [y + $y, x + $x]] : b,
       a
     ),
     []
   )
-}
 
 const getIn = (grid) => (position) =>
   (([y, x]) => grid[y][x])(newKeys(grid.length, position))
