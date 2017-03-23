@@ -21,7 +21,7 @@ export default ({
   onClass = 'fa-pause',
   offClass = 'fa-play',
   onClick = NO_OP
-}) =>
+}) => (
   <label htmlFor='autoplay' className={buttonClasses(on)}>
     <i className={iconClasses(on, onClass, offClass)} />
     <input
@@ -31,3 +31,4 @@ export default ({
       onChange={onClick}
     /> {label}
   </label>
+)
