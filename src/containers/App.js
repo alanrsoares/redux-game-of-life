@@ -10,9 +10,15 @@ class App extends Component {
   render () {
     return (
       <div>
-        <GridControls actions={this.props.actions} profiler={this.props.profiler}/>
+        <GridControls
+          actions={this.props.actions}
+          profiler={this.props.profiler}
+        />
         <div>
-          <Grid data={this.props.grid} toggle={this.props.actions.toggle}/>
+          <Grid
+            data={this.props.grid}
+            toggle={this.props.actions.toggle}
+          />
         </div>
         <ForkMeOnGithubRibbon />
       </div>

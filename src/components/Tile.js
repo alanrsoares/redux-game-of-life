@@ -9,5 +9,5 @@ export default ({ alive, toggle }) =>
   <td className='tile'
     onMouseOver={onMouseEvent(toggle, alive)}
     onMouseDown={onMouseEvent(toggle, alive)}
-    style={alive ? { backgroundColor: '#fff' } : null}>
-  </td>
+    style={alive ? { backgroundColor: '#fff' } : null}
+  />

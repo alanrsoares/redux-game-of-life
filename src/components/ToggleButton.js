@@ -23,10 +23,11 @@ export default ({
   onClick = NO_OP
 }) =>
   <label htmlFor='autoplay' className={buttonClasses(on)}>
-    <i className={iconClasses(on, onClass, offClass)}></i>
+    <i className={iconClasses(on, onClass, offClass)} />
     <input
       id='autoplay'
       style={{ display: 'none' }}
       type='checkbox'
-      onChange={onClick}/> {label}
+      onChange={onClick}
+    /> {label}
   </label>
