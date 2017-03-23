@@ -12,14 +12,16 @@ const renderTile = (toggle, y) => (alive, x) =>
     })
   })
 
-const renderRow = (toggle) => (row, y) =>
+const renderRow = (toggle) => (row, y) => (
   <tr key={y}>
     {row.map(renderTile(toggle, y))}
   </tr>
+)
 
-export default ({ data, toggle }) =>
+export default ({ data, toggle }) => (
   <table className='grid'>
     <tbody>
       {data.map(renderRow(toggle))}
     </tbody>
   </table>
+)
