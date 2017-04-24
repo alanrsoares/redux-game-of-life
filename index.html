@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conway's Game of Life</title>
 
-    <!-- le css imports -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"/>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css" />
+    <!-- les css imports -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
 
-    <!-- le inline styles -->
+
+    <!-- les inline styles -->
     <style>
       .grid-controls {
         text-align: center;
         margin: 20px auto;
       }
+      .grid-controls-buttons {
+        margin-bottom: 20px;
+      }
       .grid {
         margin: auto;
-        border-spacing: 0;
         border: solid 2px #111;
+        width: 454px;
       }
-      .tile {
+      .grid-row {
+        height: 15px;
+      }
+      .grid-tile {
         background-color: #2e3338;
         display: inline-block;
         width: 15px;
@@ -36,7 +43,7 @@
         -o-transition: background-color 0.15s ease-out;
         transition: background-color 0.15s ease-out;
       }
-      .tile:hover {
+      .grid-tile:hover {
         background-color: #484D52;
       }
     </style>

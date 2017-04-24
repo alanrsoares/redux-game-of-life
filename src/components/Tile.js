@@ -5,10 +5,10 @@ const onMouseEvent = (toggle, alive) => (e) => {
   toggle(alive)
 }
 
-export default ({ alive, toggle }) => (
-  <td className='tile'
+export default ({ alive, toggle, color = '#FFF' }) => (
+  <div className='grid-tile'
     onMouseOver={onMouseEvent(toggle, alive)}
     onMouseDown={onMouseEvent(toggle, alive)}
-    style={alive ? { backgroundColor: '#fff' } : null}
+    style={alive ? { backgroundColor: color } : null}
   />
 )
