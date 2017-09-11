@@ -4,7 +4,7 @@ const PROJECT_URL = 'https://github.com/alanrsoares/redux-game-of-life'
 
 const ribbon = (
   <div className='github-fork-ribbon'>
-    <a href={PROJECT_URL}>Fork me on Github</a>
+    <a href={PROJECT_URL}>Fork me on GitHub</a>
   </div>
 )
 
