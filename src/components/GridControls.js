@@ -1,15 +1,10 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
 import ToggleButton from './ToggleButton'
 import { randomizer } from '../lib/utils'
 
-export default class GridControls extends Component {
-  constructor (props) {
-    super(props)
-    this.reset = this.reset.bind(this)
-    this.random = this.random.bind(this)
-  }
-
+export default class GridControls extends PureComponent {
   render () {
     const { actions, profiler } = this.props
     const marginBottom = `${(!profiler.frameId ? 20 : 0)}px`
@@ -49,34 +44,28 @@ export default class GridControls extends Component {
     )
   }
 
-  toggleAutoplay (tick) {
-    return () => {
-      if (this.props.profiler.startedAt) {
-        return this.stop()
-      }
-
-      this.props.actions.start(Date.now())
-      this.start(tick)
+  toggleAutoplay = (tick) => () => {
+    if (this.props.profiler.startedAt) {
+      return this.stop()
     }
+
+    this.props.actions.start(Date.now())
+    this.start(tick)
   }
 
-  random () {
-    this.props.actions.random({ randomizer })
-  }
+  random = () => this.props.actions.random({ randomizer })
 
-  start (tick) {
-    tick({
-      frameId: window.requestAnimationFrame(() => this.start(tick)),
-      now: Date.now()
-    })
-  }
+  start = (tick) => tick({
+    frameId: window.requestAnimationFrame(() => this.start(tick)),
+    now: Date.now()
+  })
 
-  stop () {
+  stop = () => {
     window.cancelAnimationFrame(this.props.profiler.frameId)
     this.props.actions.stop()
   }
 
-  reset () {
+  reset = () => {
     if (this.props.profiler.startedAt) {
       this.stop()
     }
