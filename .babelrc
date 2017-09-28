@@ -4,12 +4,12 @@
     "react",
     "stage-2"
   ],
+  "plugins": [
+		"ramda"
+	],
   "env": {
     "development": {
       "presets": ["react-hmre"]
     }
-  },
-  "plugins": [
-		"ramda"
-  ]
+  }
 }
