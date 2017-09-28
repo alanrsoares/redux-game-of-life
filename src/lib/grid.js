@@ -1,7 +1,5 @@
-import range from 'ramda/src/range'
-import curry from 'ramda/src/curry'
+import { curry, range, always } from 'ramda'
 
-const always = (x) => () => x
 const FALSE = always(false)
 
 export const makeGrid = curry((cell, size) => {
