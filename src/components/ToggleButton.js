@@ -3,17 +3,15 @@ import cn from 'classnames'
 
 const NO_OP = () => null
 
-const iconClasses = (on, onClass, offClass) =>
-  cn('fa', 'fa-lg', {
-    'active': on,
-    [onClass]: on,
-    [offClass]: !on
-  })
+const iconClasses = (on, onClass, offClass) => cn('fa', 'fa-lg', {
+  'active': on,
+  [onClass]: on,
+  [offClass]: !on
+})
 
-const buttonClasses = (on) =>
-  cn('btn', 'btn-default', {
-    'active': on
-  })
+const buttonClasses = (on) => cn('btn', 'btn-default', {
+  'active': on
+})
 
 export default ({
   on,

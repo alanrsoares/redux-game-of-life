@@ -1,33 +1,31 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+
 import GridControls from '../components/GridControls'
-import Grid from '../components/Grid'
+import Grid, { GridShape } from '../components/Grid'
 import ForkMeOnGithubRibbon from '../components/ForkMeOnGithubRibbon'
 import * as GridActions from '../actions/grid'
 
-class App extends Component {
-  render () {
-    return (
-      <div>
-        <GridControls
-          actions={this.props.actions}
-          profiler={this.props.profiler}
-        />
-        <div>
-          <Grid
-            data={this.props.grid}
-            toggle={this.props.actions.toggle}
-          />
-        </div>
-        <ForkMeOnGithubRibbon />
-      </div>
-    )
-  }
-}
+const App = (props) => (
+  <div>
+    <GridControls
+      actions={props.actions}
+      profiler={props.profiler}
+    />
+    <div>
+      <Grid
+        data={props.grid}
+        toggle={props.actions.toggle}
+      />
+    </div>
+    <ForkMeOnGithubRibbon />
+  </div>
+)
 
 App.propTypes = {
-  grid: PropTypes.array.isRequired,
+  grid: GridShape.isRequired,
   profiler: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 }

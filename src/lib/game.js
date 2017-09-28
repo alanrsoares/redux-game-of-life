@@ -39,7 +39,7 @@ export const willLive = (isAlive, neighbours) =>
 export const nextState = (grid) =>
   grid.map((row, y) =>
     row.map((column, x) =>
-      +willLive(column, getNeighbours(grid, { y, x }))
+      willLive(column, getNeighbours(grid, { y, x }))
     )
   )
 
