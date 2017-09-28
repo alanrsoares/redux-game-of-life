@@ -1,8 +1,15 @@
 {
-  "presets": ["react", "es2015", "stage-2"],
+  "presets": [
+    "env",
+    "react",
+    "stage-2"
+  ],
   "env": {
     "development": {
       "presets": ["react-hmre"]
     }
-  }
+  },
+  "plugins": [
+		"ramda"
+  ]
 }
