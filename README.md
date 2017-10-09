@@ -13,10 +13,8 @@ $ npm i
 
 ## start developmnent server
 ```bash
-$ npm start
+$ npm start  # and see it running on http://localhost:3000
 ```
-
-### see it running on [localhost:3000](http://localhost:3000)
 
 ## License
 
